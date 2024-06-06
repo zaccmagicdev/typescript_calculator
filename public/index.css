@@ -1,14 +1,30 @@
-#img {
-  display: block;
-  margin: auto;
-  height: 128px;
-  width: 128px;
-  padding: 2rem;
+@font-face {
+  font-family: "Red Hat";
+  src: url("../vendor/fonts/RedHatDisplay-Light.woff");
 }
 
-#canvas {
-  display: block;
-  margin: 2rem auto;
-  width: 540px;
-  height: 540px;
+.calculator__bg{
+  background-color: #031609;
+  padding: 50px;
+  font-family: "Red Hat", Arial, Helvetica;
+}
+
+.calculator__main{
+  max-width: 800px;
+  height: 820px;
+  background-color: gray;
+  margin: auto;
+  border-radius: 20px;
+  padding: 50px 60px;
+}
+
+#calculator__screen{
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  margin: auto;
+  direction: rtl;
+  border: 3px solid black;
+  font-size: 34px;
 }
