@@ -1,5 +1,10 @@
 @import url(../src/vendor/fonts.css);
 
+li{
+  margin: 0;
+  width: 100%;
+}
+
 .calculator__button{
   width: 50px;
   height: 50px;
@@ -19,7 +24,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px;
-  font-family: 'Manrope', Arial, Helvetica;
+  font-family: 'Times New Roman', Times, serif;
   height: 100vh;
 }
 
@@ -48,14 +53,16 @@
 
 .calculator__history{
   position: absolute;
-  width: 100%;
   visibility: hidden;
   opacity: 0;
+  max-width: 924px;
+  box-sizing: border-box;
+  background-color: white;
 }
 
 .calculator__history_shown{
   visibility: visible;
-  opacity: 0;
+  opacity: 1;
 }
 
 .calculator__buttons{
