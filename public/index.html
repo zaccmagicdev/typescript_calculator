@@ -5,12 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Web site created using create-snowpack-app" />
     <link rel="stylesheet" type="text/css" href="/index.css" />
+    <link rel="icon" type="image/x-con" href="./favicon.ico" />
     <script src="dist/index.js" type="module"></script>
-    <title>TypeScript Calculator</title>
+    <title>Simple TypeScript Calculator</title>
   </head>
   <body class="calculator__bg">
     <main class="calculator__main">
       <input id="calculator__screen" readonly />
+      <ul class="calculator__history"></ul>
+      <input type="checkbox" id="calculator__history-tab" />
+      <section class="calculator__buttons">
+       <button class="calculator__button">1</button>
+       <button class="calculator__button">2</button>
+       <button class="calculator__button">3</button>
+       <button class="calculator__button">4</button>
+       <button class="calculator__button">5</button>
+       <button class="calculator__button">6</button>
+       <button class="calculator__button">7</button>
+       <button class="calculator__button">8</button>
+       <button class="calculator__button">9</button>
+       <button class="calculator__button">0</button>
+       <button class="calculator__button">.</button>
+       <button class="calculator__button">+</button>
+       <button class="calculator__button">-</button>
+       <button class="calculator__button">/</button>
+       <button class="calculator__button">*</button>
+       <button class="calculator__button">&#960;</button>
+       <button id="calculator__result" class="calculator__button">=</button>
+       <button id="calculator__clear" class="calculator__button">CC</button>
+      </section>
     </main>
   </body>
 </html>

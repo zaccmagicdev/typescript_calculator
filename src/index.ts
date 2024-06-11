@@ -1,5 +1,57 @@
 //variable declarations
+import { evaluate } from 'mathjs';
+
 const calcScreen = document.querySelector<HTMLInputElement>('#calculator__screen');
+const calcButton = document.querySelectorAll<HTMLButtonElement>('.calculator__button');
+const calcResultButton = document.getElementById('calculator__result') as HTMLButtonElement;
+const calcClearButton = document.getElementById('calculator__clear') as HTMLButtonElement;
+const calcHistoryTab = document.getElementById('calculator__history-tab') as HTMLInputElement;
+const calcHistoryList = document.querySelector<HTMLUListElement>('.calculator__history');
 
+let calcValue = '';
+calcScreen!.value = '0';
+const exp = /[+-/*.]+/;
 
-//try making the buttons into objects that can be cloned and return their value to the screen? Could happen with Types in ts
+type HistoryEntry = {
+    equation: string,
+    answer: string
+}
+
+calcHistoryTab.checked ? calcHistoryList?.classList.add('calculator__history_shown') : calcHistoryList?.classList.remove('calculator__history_shown');
+
+calcButton.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        //switch(){}
+        calcValue += button.textContent;
+        calcScreen!.value = calcValue;
+    })
+})
+
+calcResultButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    calcValue = calcValue.replace(/=/g, '')
+    console.log(calcValue)
+    const currentEquation = calcValue;
+    if(exp.test(calcValue.charAt(calcValue.length - 1))){
+        calcValue = calcValue.substring(0, calcValue.length - 1)
+    } else {
+        const result = evaluate(calcValue);
+        calcScreen!.value = result.toString();
+        //make value global
+        calcValue = result;
+    }
+    const entry = document.createElement("li")
+    const entryContent: HistoryEntry = {
+        equation: currentEquation,
+        answer: calcValue
+    }
+    entry.textContent = `${entryContent.equation} = ${entryContent.answer}`
+    calcHistoryList?.append(entry)
+})
+
+calcClearButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    calcValue = '';
+    calcScreen!.value = '0';
+})

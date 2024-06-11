@@ -1,30 +1,72 @@
-@font-face {
-  font-family: "Red Hat";
-  src: url("../vendor/fonts/RedHatDisplay-Light.woff");
+@import url(../src/vendor/fonts.css);
+
+.calculator__button{
+  width: 50px;
+  height: 50px;
+  color: white;
+  border-radius: 10%;
+  border-color: 1px solid white;
+  background: none;
+  width: 100px;
+  height: 100px;
+  font-size: 60px;
+  font-weight: 200;
 }
 
 .calculator__bg{
-  background-color: #031609;
+  background: rgb(145,0,255);
+  background: linear-gradient(54deg, rgba(145,0,255,1) 0%, rgba(69,58,225,1) 50%, rgba(45,126,253,1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 50px;
-  font-family: "Red Hat", Arial, Helvetica;
+  font-family: 'Manrope', Arial, Helvetica;
+  height: 100vh;
 }
 
 .calculator__main{
   max-width: 800px;
   height: 820px;
-  background-color: gray;
   margin: auto;
   border-radius: 20px;
   padding: 50px 60px;
+  border: 2px solid white
 }
 
 #calculator__screen{
   width: 100%;
   height: 60px;
   border-radius: 10px;
+  background: none;
+  color: white;
   border: none;
   margin: auto;
-  direction: rtl;
-  border: 3px solid black;
+  border: 2px solid white;
   font-size: 34px;
+  outline: none;
+  cursor: default;
+}
+
+.calculator__history{
+  position: absolute;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.calculator__history_shown{
+  visibility: visible;
+  opacity: 0;
+}
+
+.calculator__buttons{
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  row-gap: 1px;
+}
+
+#calculator__history-tab{
+  position: absolute;
 }
