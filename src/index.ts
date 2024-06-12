@@ -38,7 +38,6 @@ calcHistoryTab.addEventListener('change', () => {
 calcButton.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
-    //switch(){}
     calcValue += button.textContent;
     calcScreen!.value = calcValue;
   });
@@ -47,6 +46,7 @@ calcButton.forEach((button) => {
 calcResultButton.addEventListener('click', (e) => {
   e.preventDefault();
   calcValue = calcValue.replace(/=/g, '');
+  calcValue = calcValue.replace('π', Math.PI.toString());
   const currentEquation = calcValue;
   if (exp.test(calcValue.charAt(calcValue.length - 1))) {
     calcValue = calcValue.substring(0, calcValue.length - 1);
@@ -71,8 +71,8 @@ calcResultButton.addEventListener('click', (e) => {
   })
 
   entry.textContent = `${entryContent.equation} = ${entryContent.answer}`;
+  entry!.append(getAnswerButton)
   calcHistoryList?.append(entry);
-  calcHistoryList?.appendChild(getAnswerButton);
 });
 
 calcClearButton.addEventListener('click', (e) => {
