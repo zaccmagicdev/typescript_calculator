@@ -22,7 +22,6 @@ const calcHistoryList = document.querySelector<HTMLUListElement>(
 
 let calcValue = '';
 calcScreen!.value = '0';
-const exp = /[+-/*.]+/;
 
 type HistoryEntry = {
   equation: string;
@@ -47,32 +46,36 @@ calcResultButton.addEventListener('click', (e) => {
   e.preventDefault();
   calcValue = calcValue.replace(/=/g, '');
   calcValue = calcValue.replace('π', Math.PI.toString());
-  const currentEquation = calcValue;
-  if (exp.test(calcValue.charAt(calcValue.length - 1))) {
-    calcValue = calcValue.substring(0, calcValue.length - 1);
-  } else {
+
+  if (calcValue !== '') {
+    const currentEquation = calcValue;
     const result = evaluate(calcValue);
+
     calcScreen!.value = result.toString();
-    //make value global
     calcValue = result;
+
+    const getAnswerButton = document.createElement('button');
+    const entry = document.createElement('li');
+
+    const entryContent: HistoryEntry = {
+      equation: currentEquation,
+      answer: calcValue,
+    };
+
+    getAnswerButton.addEventListener('click', () => {
+      calcScreen!.value = entryContent.answer;
+      calcValue = entryContent.answer;
+      calcHistoryList?.classList.remove('calculator__history_shown');
+      calcHistoryTab!.checked = false;
+    });
+
+    entry.textContent = `${entryContent.equation} = ${entryContent.answer}`;
+    entry!.append(getAnswerButton);
+    calcHistoryList?.append(entry);
+  } else {
+    calcValue = '';
+    calcScreen!.value = '0';
   }
-  const getAnswerButton = document.createElement('button');
-  const entry = document.createElement('li');
-  const entryContent: HistoryEntry = {
-    equation: currentEquation,
-    answer: calcValue,
-  };
-
-  getAnswerButton.addEventListener('click', () => {
-    calcScreen!.value = entryContent.answer;
-    calcValue = entryContent.answer;
-    calcHistoryList?.classList.remove('calculator__history_shown');
-    calcHistoryTab!.checked = false;
-  })
-
-  entry.textContent = `${entryContent.equation} = ${entryContent.answer}`;
-  entry!.append(getAnswerButton)
-  calcHistoryList?.append(entry);
 });
 
 calcClearButton.addEventListener('click', (e) => {

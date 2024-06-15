@@ -79,3 +79,10 @@ li{
 #calculator__history-tab{
   position: absolute;
 }
+
+@media screen and (max-width: 539px){
+  .calculator__button{
+    width: 50px;
+    height: 50px;
+  }
+}
