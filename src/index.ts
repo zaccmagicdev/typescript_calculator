@@ -19,7 +19,9 @@ const calcHistoryTab = document.getElementById(
 const calcHistoryList = document.querySelector<HTMLUListElement>(
   '.calculator__history',
 );
-
+const calcBackspace = document.getElementById(
+  'calculator__backspace',
+) as HTMLButtonElement;
 let calcValue = '';
 calcScreen!.value = '0';
 
@@ -44,6 +46,7 @@ calcButton.forEach((button) => {
 
 calcResultButton.addEventListener('click', (e) => {
   e.preventDefault();
+  //fixing a processing error with math.js for how my program works
   calcValue = calcValue.replace(/=/g, '');
   calcValue = calcValue.replace('π', Math.PI.toString());
 
@@ -55,6 +58,7 @@ calcResultButton.addEventListener('click', (e) => {
     calcValue = result;
 
     const getAnswerButton = document.createElement('button');
+    getAnswerButton.textContent = 'Add result';
     const entry = document.createElement('li');
 
     const entryContent: HistoryEntry = {
@@ -82,4 +86,14 @@ calcClearButton.addEventListener('click', (e) => {
   e.preventDefault();
   calcValue = '';
   calcScreen!.value = '0';
+});
+
+calcBackspace.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (calcValue !== '') {
+    calcValue = calcValue.substring(0, calcValue.length - 1);
+    calcScreen!.value = calcValue;
+  } else {
+    return;
+  }
 });
