@@ -8,19 +8,23 @@ li {
   justify-content: space-around;
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: lightgrey 1px solid;
+  padding: 2px;
+}
+
+li:last-child{
+  border: none;
 }
 
 .calculator__button {
-  width: 50px;
-  height: 50px;
   color: white;
   border-radius: 10%;
   border-color: 1px solid white;
   background: none;
   width: 100px;
   height: 100px;
-  font-size: 60px;
+  font-size: 35px;
   font-weight: 200;
+  cursor: pointer;
 }
 
 #calculator__backspace{
@@ -75,6 +79,7 @@ li {
   background-color: white;
   margin: 0;
   border-radius: 10px;
+  padding: 0px;
 }
 
 .calculator__history_shown {

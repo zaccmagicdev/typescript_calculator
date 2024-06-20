@@ -24,6 +24,7 @@ const calcBackspace = document.getElementById(
 ) as HTMLButtonElement;
 let calcValue = '';
 calcScreen!.value = '0';
+const endRegex = /\D/g;
 
 type HistoryEntry = {
   equation: string;
@@ -47,9 +48,11 @@ calcButton.forEach((button) => {
 calcResultButton.addEventListener('click', (e) => {
   e.preventDefault();
   //fixing a processing error with math.js for how my program works
-  calcValue = calcValue.replace(/=/g, '');
+  //and fixing additional parsing errors such as operation symbols being at the end
   calcValue = calcValue.replace('π', Math.PI.toString());
-
+  calcValue.charAt(calcValue.length - 1).match(endRegex) && 
+  (calcValue = calcValue.substring(0, calcValue.length - 1));
+  
   if (calcValue !== '') {
     const currentEquation = calcValue;
     const result = evaluate(calcValue);
