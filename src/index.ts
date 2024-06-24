@@ -1,6 +1,7 @@
-//variable declarations
+//imports
 import { evaluate } from 'mathjs';
 
+//variable declarations
 const calcScreen = document.querySelector<HTMLInputElement>(
   '#calculator__screen',
 );
@@ -23,14 +24,16 @@ const calcBackspace = document.getElementById(
   'calculator__backspace',
 ) as HTMLButtonElement;
 let calcValue = '';
-calcScreen!.value = '0';
+
 const endRegex = /\D/g;
 
+//using a custom type for appending values, thanks TS!!
 type HistoryEntry = {
   equation: string;
   answer: string;
 };
 
+//event listeners
 calcHistoryTab.addEventListener('change', () => {
   calcHistoryTab.checked
     ? calcHistoryList?.classList.add('calculator__history_shown')
@@ -44,7 +47,6 @@ calcButton.forEach((button) => {
     calcScreen!.value = calcValue;
   });
 });
-
 calcResultButton.addEventListener('click', (e) => {
   e.preventDefault();
   //fixing a processing error with math.js for how my program works
@@ -52,7 +54,8 @@ calcResultButton.addEventListener('click', (e) => {
   calcValue = calcValue.replace('π', Math.PI.toString());
   calcValue.charAt(calcValue.length - 1).match(endRegex) && 
   (calcValue = calcValue.substring(0, calcValue.length - 1));
-  
+ 
+  //calcValue cannot be empty otherwise math.js with throw an error
   if (calcValue !== '') {
     const currentEquation = calcValue;
     const result = evaluate(calcValue);
@@ -64,11 +67,13 @@ calcResultButton.addEventListener('click', (e) => {
     getAnswerButton.textContent = 'Add result';
     const entry = document.createElement('li');
 
+    //creating an instance for making an entry to the list
     const entryContent: HistoryEntry = {
       equation: currentEquation,
       answer: calcValue,
     };
 
+    //event listener for retreiving a value for the screen
     getAnswerButton.addEventListener('click', () => {
       calcScreen!.value = entryContent.answer;
       calcValue = entryContent.answer;
@@ -76,9 +81,11 @@ calcResultButton.addEventListener('click', (e) => {
       calcHistoryTab!.checked = false;
     });
 
+    //li value itself
     entry.textContent = `${entryContent.equation} = ${entryContent.answer}`;
     entry!.append(getAnswerButton);
     calcHistoryList?.append(entry);
+
   } else {
     calcValue = '';
     calcScreen!.value = '0';

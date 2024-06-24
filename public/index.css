@@ -70,6 +70,10 @@ li:last-child{
   cursor: default;
 }
 
+::placeholder{
+  opacity: 100%;
+}
+
 .calculator__history {
   position: relative;
   visibility: hidden;
