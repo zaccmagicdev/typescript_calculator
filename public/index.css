@@ -1,5 +1,9 @@
 @import url(../src/vendor/fonts.css);
 
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 li {
   margin: 0;
   width: 100%;
@@ -8,7 +12,8 @@ li {
   justify-content: space-around;
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: lightgrey 1px solid;
-  padding: 2px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 li:last-child{
@@ -20,16 +25,12 @@ li:last-child{
   border-radius: 10%;
   border-color: 1px solid white;
   background: none;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 130px;
   font-size: 35px;
   font-weight: 200;
   cursor: pointer;
-}
-
-#calculator__backspace{
-  background: transparent url('./delete-left-solid.svg') no-repeat center;
-  background-size: 60%;
+  transition: 1ms ease-in-out;
 }
 
 .calculator__bg {
@@ -43,7 +44,6 @@ li:last-child{
   background-repeat: no-repeat;
   background-size: cover;
   padding: 50px;
-  font-family: 'Times New Roman', Times, serif;
   height: 100vh;
 }
 
@@ -68,17 +68,23 @@ li:last-child{
   font-size: 34px;
   outline: none;
   cursor: default;
+  box-sizing: border-box;
 }
 
 ::placeholder{
   opacity: 100%;
 }
 
-.calculator__history {
+.calculator__history-container{
   position: relative;
+  width: 100%;
+}
+
+.calculator__history {
+  position: absolute;
   visibility: hidden;
   opacity: 0;
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
   background-color: white;
   margin: 0;
@@ -96,8 +102,21 @@ li:last-child{
   cursor: pointer;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: auto auto auto auto;
+  grid-auto-rows: max-content;
   row-gap: 1px;
+}
+
+.calculator__footer{
+  display: flex;
+  justify-content: space-between;
+  max-width: 924px;
+  margin: auto;
+}
+
+.calculator__footer__text{
+  font-size: 20px;
+  color: white;
 }
 
 input[type='checkbox'] {
@@ -116,6 +135,21 @@ input[type='checkbox'] + label {
 
 input[type='checkbox']:checked + label {
  transform: rotate(180deg);
+}
+
+.calculator__button:active{
+  background-color: white;
+  color: black;
+}
+
+@keyframes listAnimation{
+  0%{
+    height: 0%;
+  }
+
+  100%{
+    height: 100%
+  }
 }
 
 @media screen and (max-width: 539px) {
