@@ -98,9 +98,12 @@ calcClearButton.addEventListener('click', (e) => {
   calcScreen!.value = '0';
 });
 
+console.log(calcBackspace)
+
 calcBackspace.addEventListener('click', (e) => {
   e.preventDefault();
   if (calcValue !== '') {
+    calcValue = calcValue.replace('←', '');
     calcValue = calcValue.substring(0, calcValue.length - 1);
     calcScreen!.value = calcValue;
   } else {

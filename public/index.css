@@ -22,15 +22,16 @@ li:last-child{
 
 .calculator__button {
   color: white;
-  border-radius: 10%;
-  border-color: 1px solid white;
+  border-radius: 10px;
   background: none;
   width: 100%;
   height: 130px;
+  box-sizing: border-box;
   font-size: 35px;
   font-weight: 200;
   cursor: pointer;
   transition: 1ms ease-in-out;
+  border: 2px solid white;
 }
 
 .calculator__bg {
@@ -73,6 +74,7 @@ li:last-child{
 
 ::placeholder{
   opacity: 100%;
+  color: white;
 }
 
 .calculator__history-container{
@@ -90,6 +92,7 @@ li:last-child{
   margin: 0;
   border-radius: 10px;
   padding: 0px;
+  transition: all 1s ease;
 }
 
 .calculator__history_shown {
@@ -142,19 +145,20 @@ input[type='checkbox']:checked + label {
   color: black;
 }
 
-@keyframes listAnimation{
-  0%{
-    height: 0%;
+@keyframes slideDown {
+  from {
+    height: 0px
   }
-
-  100%{
+  to {
     height: 100%
   }
 }
 
-@media screen and (max-width: 539px) {
-  .calculator__button {
-    width: 50px;
-    height: 50px;
+@keyframes slideUp {
+  from {
+    height: 100%
+  }
+  to {
+    height: 0px
   }
 }
