@@ -95,6 +95,11 @@ li:last-child{
   transition: all 1s ease;
 }
 
+.calculator__history__append-button{
+  border: none;
+  background: none;
+}
+
 .calculator__history_shown {
   visibility: visible;
   opacity: 1;

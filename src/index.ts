@@ -64,6 +64,7 @@ calcResultButton.addEventListener('click', (e) => {
     calcValue = result;
 
     const getAnswerButton = document.createElement('button');
+    getAnswerButton.className = "calculator__history__append-button"
     getAnswerButton.textContent = 'Add result';
     const entry = document.createElement('li');
 
