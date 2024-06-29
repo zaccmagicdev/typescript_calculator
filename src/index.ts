@@ -52,9 +52,12 @@ calcResultButton.addEventListener('click', (e) => {
   //fixing a processing error with math.js for how my program works
   //and fixing additional parsing errors such as operation symbols being at the end
   calcValue = calcValue.replace('π', Math.PI.toString());
+  calcValue = calcValue.replace('=', '');
   calcValue.charAt(calcValue.length - 1).match(endRegex) && 
-  (calcValue = calcValue.substring(0, calcValue.length - 1));
+  (calcValue = '');
  
+console.log(calcValue)
+
   //calcValue cannot be empty otherwise math.js with throw an error
   if (calcValue !== '') {
     const currentEquation = calcValue;
