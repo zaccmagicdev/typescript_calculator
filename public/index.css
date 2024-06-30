@@ -1,6 +1,6 @@
 @import url(../src/vendor/fonts.css);
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -16,7 +16,7 @@ li {
   box-sizing: border-box;
 }
 
-li:last-child{
+li:last-child {
   border: none;
 }
 
@@ -35,17 +35,13 @@ li:last-child{
 }
 
 .calculator__bg {
-  background: rgb(145, 0, 255);
-  background: linear-gradient(
-    54deg,
-    rgba(145, 0, 255, 1) 0%,
-    rgba(69, 58, 225, 1) 50%,
-    rgba(45, 126, 253, 1) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(45deg, #5749c3, #b858bd, #524eec);
+  background-size: 600% 600%;
+  -webkit-animation: animatedGradient 35s ease infinite;
+  -moz-animation: animatedGradient 35s ease infinite;
+  animation: animatedGradient 35s ease infinite;
   padding: 50px;
-  height: 100vh;
+  height: 80vh;
 }
 
 .calculator__main {
@@ -72,12 +68,12 @@ li:last-child{
   box-sizing: border-box;
 }
 
-::placeholder{
+::placeholder {
   opacity: 100%;
   color: white;
 }
 
-.calculator__history-container{
+.calculator__history-container {
   position: relative;
   width: 100%;
 }
@@ -91,18 +87,18 @@ li:last-child{
   border-radius: 10px;
   padding: 0px;
   max-height: 0;
-  transition: max-height 0.15s ease-out;
+  transition: max-height 0.2s ease-out;
   overflow: hidden;
 }
 
-.calculator__history__append-button{
+.calculator__history__append-button {
   border: none;
   background: none;
 }
 
 .calculator__history_shown {
   max-height: 2000px;
-  transition: max-height 0.25s ease-in;
+  transition: max-height 0.5s ease-in;
 }
 
 .calculator__buttons {
@@ -110,19 +106,19 @@ li:last-child{
   cursor: pointer;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 25%);
   grid-auto-rows: max-content;
   row-gap: 1px;
 }
 
-.calculator__footer{
+.calculator__footer {
   display: flex;
   justify-content: space-between;
   max-width: 924px;
   margin: auto;
 }
 
-.calculator__footer__text{
+.calculator__footer__text {
   font-size: 20px;
   color: white;
 }
@@ -138,15 +134,103 @@ input[type='checkbox'] + label {
   height: 40px;
   width: 40px;
   background-size: 50%;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 input[type='checkbox']:checked + label {
- transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-.calculator__button:active{
+.calculator__button:active {
   background-color: white;
   color: black;
 }
 
+@media (max-width: 645px) {
+  .calculator__main {
+    height: 550px;
+  }
+
+  .calculator__button {
+    height: 80px;
+  }
+}
+
+@media(max-width: 500px){
+  .calculator__button{
+    height: 60px;
+    font-size: 25px;
+  }
+
+  .calculator__main {
+    height: 480px;
+  }
+}
+
+@media(max-width: 450px){
+  .calculator__button{
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .calculator__main{
+    padding: 20px 30px;
+    height: 370px;
+  }
+
+  #calculator__screen {
+    height: 45px;
+    font-size: 25px;
+  }
+
+  .calculator__footer__text{
+    font-size: 12px;
+  }
+
+  input[type='checkbox'] + label{
+    width: 30px;
+    height: 30px;
+  }
+
+  li{
+    font-size: 12px;
+  }
+
+  .calculator__history__append-button{
+    font-size: 12px;
+  }
+}
+
+@-webkit-keyframes animatedGradient {
+  0% {
+    background-position: 0% 94%;
+  }
+  50% {
+    background-position: 100% 7%;
+  }
+  100% {
+    background-position: 0% 94%;
+  }
+}
+@-moz-keyframes animatedGradient {
+  0% {
+    background-position: 0% 94%;
+  }
+  50% {
+    background-position: 100% 7%;
+  }
+  100% {
+    background-position: 0% 94%;
+  }
+}
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 94%;
+  }
+  50% {
+    background-position: 100% 7%;
+  }
+  100% {
+    background-position: 0% 94%;
+  }
+}

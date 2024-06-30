@@ -26,7 +26,7 @@ const calcBackspace = document.getElementById(
 let calcValue = '';
 
 const endRegex = /\D/g;
-
+const duplicateRegex = /(\D)\1+/gm;
 //using a custom type for appending values, thanks TS!!
 type HistoryEntry = {
   equation: string;
@@ -53,10 +53,9 @@ calcResultButton.addEventListener('click', (e) => {
   //and fixing additional parsing errors such as operation symbols being at the end
   calcValue = calcValue.replace('π', Math.PI.toString());
   calcValue = calcValue.replace('=', '');
-  calcValue.charAt(calcValue.length - 1).match(endRegex) && 
+ if( calcValue.charAt(calcValue.length - 1).match(endRegex) || calcValue.match(duplicateRegex)){
   (calcValue = '');
- 
-console.log(calcValue)
+ }
 
   //calcValue cannot be empty otherwise math.js with throw an error
   if (calcValue !== '') {
