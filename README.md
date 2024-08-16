@@ -1,27 +1,17 @@
-#First TypeScript App!!
+## First TypeScript App!!
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 > <3 Made with love
 
-### npm start
+This is a simple calculator site I made a little bit ago but just finally got to figuring out how to deploy to gh pages using snowpack! This is the first project I have ever made on TS and using it's unique features. TypeScript being strongly typed can be nice to save time on potentially writing more code
+and handle more errors. This responsive application features:
+- an animated gradient background
+- looks great on all devices
+- saves entries made on the calculator
+- entries can be pulled up on the screen
+- keyframes animations for smooth rendering
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+At some point I may add a page for graphical functions and charts
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-### npm run build
-
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.mjs` config file.
-
-### What is this app? 
-
-This is a simple, responsive little calculator I'm making while experimenting with TypeScript and Gradient wallpapers...
-More features in the works
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+##I don't wanna open the link to the site. What does it look like?
+![ScreenShot](https://C:\Users\Zacc\Downloads\calcreadmescreencap1.JPG)
+![ScreenShot](https://C:\Users\Zacc\Downloads\calcreadmescreencap2.JPG)

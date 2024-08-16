@@ -20,5 +20,5 @@ jobs:
       - name: Committing changes
         uses: EndBug/add-and-commit@v7
         with:
-          author_name: Zachary Wedel
-          author_email: zwede710@gmail.com
+          author_name: Snowpack Build
+          author_email: actions@github.com
