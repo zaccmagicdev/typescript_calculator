@@ -13,5 +13,6 @@ and handle more errors. This responsive application features:
 At some point I may add a page for graphical functions and charts
 
 ##I don't wanna open the link to the site. What does it look like?
-![ScreenShot](https://C:\Users\Zacc\Downloads\calcreadmescreencap1.JPG)
-![ScreenShot](https://C:\Users\Zacc\Downloads\calcreadmescreencap2.JPG)
+![repositorydemo](https://github.com/user-attachments/assets/06c7c91a-b8d5-4735-9e17-6546f5eedd41)
+
+[Click here to see for yourself](https://zaccmagicdev.github.io/typescript_calculator/).
